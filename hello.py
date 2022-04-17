@@ -18,6 +18,15 @@ myLabel3.grid(row=1, column=1)
 myLabel2.grid(row=2, column=2)
 
 
+# Input Box
+e = Entry(root, width=50)
+#e.pack  # Pack into screen if not using grid
+e.grid(row=9, column=1)
+# Put a caption in the entrybox
+e.insert(0, "Enter Your Name: ")
+# Grab input from the e. "e.get()" Putting this in the button function
+
+
 # Function to be called when button is clicked
 # Var will increase by 1 each time the button is clicked.
 count = 0
@@ -25,8 +34,9 @@ def myClick():
     # Want value to go up each time we click. State we are using the global var in the function.
     global count
     count = count + 1
-    # Call var from the text
-    myLabel4 = Label(root, text="Look I clicked a button {} times!".format(count))
+    # Call count var and place in text. Also place text from input box in the text.
+    myLabel4 = Label(root, text=("Look I clicked a button {} times!\nInput = " + e.get()).format(count))
+
     myLabel4.grid(row=8, column=1)
 
 
@@ -42,6 +52,8 @@ myButton1.grid(row=4, column=2)
 myButton2.grid(row=5, column=2)
 myButton3.grid(row=6, column=2)
 myButton4.grid(row=7, column=1)
+
+
 
 # Actually run the GUI Loop
 # Create an event loop. Keeps GUI in an everlasting loop, so it keeps functioning until user quits.
